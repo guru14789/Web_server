@@ -1,0 +1,29 @@
+<!-- yourapp/templates/signup.html -->
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\admin\miniproject\static\signupcss.css' %}">
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Sign Up</h2>
+  <form method="POST" action="{% url 'login' %}">
+    {{form.as_p}}
+    {% csrf_token %}
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

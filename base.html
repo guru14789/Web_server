@@ -1,0 +1,43 @@
+<!-- yourapp/templates/base.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<style>
+    h2 {
+  text-align: center ;
+}
+</style>
+<body>
+    <header>
+        <!-- Add header content as needed -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'success_page' %}">Success Page</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <h1>My Site</h1>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Add footer content as needed -->
+        <h2>
+            <p>&copy; 2023 My Site. All rights reserved.</p> 
+        </h2>
+        
+    </footer>
+</body>
+</html>
